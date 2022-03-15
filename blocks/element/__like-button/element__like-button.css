@@ -12,3 +12,7 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.element__like-button:hover {
+    opacity: .5;
+}

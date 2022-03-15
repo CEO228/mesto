@@ -6,3 +6,9 @@
     margin-left: auto;
     max-width: 880px;
 }
+
+@media (max-width: 425px) {
+    .footer {
+        margin-bottom: 36px;
+    }
+}

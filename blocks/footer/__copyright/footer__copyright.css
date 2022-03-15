@@ -7,3 +7,13 @@
     line-height: 22px;
     color: #545454;
 }
+
+@media (max-width: 425px) {
+    .footer__copyright {
+        font-size: 14px;
+        line-height: 17px;
+        max-width: 282px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

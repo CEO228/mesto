@@ -12,8 +12,15 @@
     justify-items: center;
 }
 
+@media (max-width: 769px) {
+    .elements {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 @media (max-width: 320px) {
     .elements {
         grid-template-columns: 1fr;
+        margin-bottom: 48px;
     }
 }

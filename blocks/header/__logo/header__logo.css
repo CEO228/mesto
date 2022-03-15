@@ -5,10 +5,14 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    margin-bottom: 41px;
 }
 
 @media (max-width: 425px) {
     .header__logo {
         margin-left: 27px;
+        width: 103.74px;
+        height: 24.4px;
+        margin-bottom: 31.6px;
     }
 }
