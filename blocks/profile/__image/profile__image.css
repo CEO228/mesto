@@ -1,6 +1,7 @@
 .profile__image {
     width: 120px;
     border-radius: 100%;
+    grid-area: image;
 }
 
 @media (max-width: 425px) {
