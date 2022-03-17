@@ -10,9 +10,14 @@
     margin-bottom: 41px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 610px) {
     .header__logo {
         margin-left: 19px;
+    }
+}
+
+@media (max-width: 425px) {
+    .header__logo {
         width: 103.74px;
         height: 24.4px;
         margin-bottom: 31.6px;

@@ -12,10 +12,11 @@
     grid-area: subtitle;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 515px) {
     .profile__subtitle {
         font-size: 14px;
         line-height: 17px;
         text-align: center;
+        margin-left: 19px;
     }
 }

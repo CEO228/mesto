@@ -21,12 +21,12 @@
 @media (max-width: 740px) {
     .profile__add-button {
         margin: 30px auto 0;
+        width: 282px;
     }
 }
 
 @media (max-width: 680px) {
     .profile__add-button {
-        width: 282px;
         margin: 0 auto;
         background-size: 16px;
     }

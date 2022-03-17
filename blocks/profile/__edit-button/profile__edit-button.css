@@ -19,12 +19,12 @@
     opacity: 0.6;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 515px) {
     .profile__edit-button {
         background-size: 7.5px;
         width: 18px;
         height: 18px;
-        margin-left: 10px;
+        margin-left: 7px;
         margin-top: 10px;
     }
 }

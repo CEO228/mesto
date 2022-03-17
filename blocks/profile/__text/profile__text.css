@@ -4,12 +4,12 @@
     margin-top: 22px;
     width: 336px;
     display: grid;
-    grid-template-columns: 292px 1fr;
+    grid-template-columns: 294px 1fr;
     grid-template-areas: "title edit" "subtitle edit";
     grid-area: text;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 515px) {
     .profile__text {
         max-width: 217px;
         margin-top: 26px;
@@ -17,6 +17,5 @@
         margin-left: auto;
         margin-bottom: 36px;
         grid-template-columns: 189px 1fr;
-        grid-template-areas: "title edit" "subtitle edit";
     }
 }

@@ -23,12 +23,11 @@
     }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 450px) {
     .popup__close-button {
         width: 20px;
         height: 20px;
         top: -32px;
-        right: 0;
         background-size: 20px;
     }
 }

@@ -4,7 +4,7 @@
     grid-area: image;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 515px) {
     .profile__image {
         margin-left: auto;
         margin-right: auto;
