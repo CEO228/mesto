@@ -1,0 +1,49 @@
+.popup__image {
+    margin: 0;
+    padding: 0;
+    height: 540px;
+    max-width: 816px;
+}
+
+@media (max-width: 915px) {
+    .popup__image {
+        max-width: 775px;
+        height: 513px;
+    }
+}
+
+@media (max-width: 890px) {
+    .popup__image {
+        max-width: 735px;
+        height: 487px;
+    }
+}
+
+@media (max-width: 840px) {
+    .popup__image {
+        max-width: 660px;
+        height: 438px;
+    }
+}
+
+@media (max-width: 760px) {
+    .popup__image {
+        max-width: 594px;
+        height: 394px;
+    }
+}
+
+@media (max-width: 635px) {
+    .popup__image {
+        max-width: 530px;
+        height: 350px;
+    }
+}
+
+@media (max-width: 555px) {
+    .popup__image {
+        max-width: 240px;
+        height: 299px;
+        object-fit: cover;
+    }
+}

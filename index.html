@@ -24,8 +24,9 @@
                 <button type="button" class="profile__add-button"></button>
             </section>
             <section class="elements">
-                <article class="element">
+                <!-- <article class="element">
                     <img class="element__image" src="./images/karachevsk.jpg" alt="Карачевск">
+                    <button type="button" class="element__delete-button"></button>
                     <div class="element__container">
                         <h2 class="element__title">Карачевск</h2>
                         <button type="button" class="element__like-button"></button>
@@ -33,6 +34,7 @@
                 </article>
                 <article class="element">
                     <img class="element__image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
+                    <button type="button" class="element__delete-button"></button>
                     <div class="element__container">
                         <h2 class="element__title">Гора Эльбрус</h2>
                         <button type="button" class="element__like-button"></button>
@@ -40,6 +42,7 @@
                 </article>
                 <article class="element">
                     <img class="element__image" src="./images/dombay.jpg" alt="Домбай">
+                    <button type="button" class="element__delete-button"></button>
                     <div class="element__container">
                         <h2 class="element__title">Домбай</h2>
                         <button type="button" class="element__like-button"></button>
@@ -47,6 +50,7 @@
                 </article>
                 <article class="element">
                     <img class="element__image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
+                    <button type="button" class="element__delete-button"></button>
                     <div class="element__container">
                         <h2 class="element__title">Гора Эльбрус</h2>
                         <button type="button" class="element__like-button"></button>
@@ -54,6 +58,7 @@
                 </article>
                 <article class="element">
                     <img class="element__image" src="./images/dombay.jpg" alt="Домбай">
+                    <button type="button" class="element__delete-button"></button>
                     <div class="element__container">
                         <h2 class="element__title">Домбай</h2>
                         <button type="button" class="element__like-button"></button>
@@ -61,26 +66,46 @@
                 </article>
                 <article class="element">
                     <img class="element__image" src="./images/karachevsk.jpg" alt="Карачаево-Ч...">
+                    <button type="button" class="element__delete-button"></button>
                     <div class="element__container">
                         <h2 class="element__title">Карачаево-Ч...</h2>
                         <button type="button" class="element__like-button"></button>
                     </div>
-                </article>
+                </article> -->
             </section>
         </main>
         <footer class="footer">
             <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
         </footer>
-        <div class="popup">
+        <div class="popup popup_type_info">
             <div class="popup__container">
-                <button type="button" class="popup__close-button"></button>
+                <button type="button" class="popup__close-button popup__close-button_type_edit"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form name="form" class="popup__form">
+                <form name="form" class="popup__form popup__form_type_edit">
                     <input name="profile-name" class="popup__input popup__input_type_name" type="text">
                     <input name="profile-job" class="popup__input popup__input_type_job" type="text">
                     <button type="submit" class="popup__save-button">Сохранить</button>
                 </form>
             </div>
+        </div>
+        <div class="popup popup_type_photo">
+            <div class="popup__container">
+                <button type="button" class="popup__close-button popup__close-button_type_add"></button>
+                <h2 class="popup__title">Новое место</h2>
+                <form name="form" class="popup__form popup__form_type_add">
+                    <input name="profile-name" class="popup__input popup__input_type_title" type="text" placeholder="Название">
+                    <input name="profile-job" class="popup__input popup__input_type_photo" type="text" placeholder="Ссылка на картинку">
+                    <button type="submit" class="popup__save-button">Создать</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup_type_open-image">
+            <div class="popup__box">
+                <button type="button" class="popup__close-button popup__close-button_type_open-image"></button>
+                <img class="popup__image" alt="фото" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/OPORTO%2C_PORTUGAL_%2816938430809%29.jpg/816px-OPORTO%2C_PORTUGAL_%2816938430809%29.jpg">
+                <p class="popup__subtitle"></p>
+            </div>
+
         </div>
     </div>
     <script src="scripts/script.js"></script>

@@ -1,0 +1,10 @@
+.popup__box {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 816px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
