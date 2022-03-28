@@ -51,7 +51,7 @@ function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = jobInput.value;
-    closeEdit();
+    closeEditProfileForm();
 }
 formEditElement.addEventListener('submit', handleProfileFormSubmit);
 
@@ -116,6 +116,7 @@ function createCard(photoName, photoLink) {
     closePicture.addEventListener('click', function() {
         closePopup(popUpImage);
     });
+
 }
 
 
@@ -127,12 +128,11 @@ function handleAddPhoto(evt) {
     evt.preventDefault();
     createCard(titleInput.value, photoInput.value);
     formAddElement.reset();
-    closeAdd()
+    closePhotoAddForm()
 }
 
 formAddElement.addEventListener('submit', handleAddPhoto);
 
-formAddElement.reset();
 
 
 /*
