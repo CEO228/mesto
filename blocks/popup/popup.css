@@ -12,6 +12,6 @@
     z-index: 2;
     display: flex;
     visibility: hidden;
-    opacity: 0;
+    opacity: 0%;
     transition: .4s ease-in-out;
 }
