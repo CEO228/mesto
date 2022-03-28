@@ -92,8 +92,9 @@ const initialCards = [{
 
 function getCard(photoName, photoLink) {
     const cardElement = template.querySelector(".element").cloneNode(true);
-    cardElement.querySelector(".element__image").src = photoLink;
-    cardElement.querySelector(".element__image").alt = photoName
+    const cardImage = cardElement.querySelector(".element__image");
+    cardImage.src = photoLink;
+    cardImage.alt = photoName;
     cardElement.querySelector(".element__title").textContent = photoName;
 
     cardElement.querySelector(".element__delete-button").addEventListener('click', function() {
@@ -104,7 +105,7 @@ function getCard(photoName, photoLink) {
         evt.target.classList.toggle('element__like-button_active');
     });
 
-    cardElement.querySelector(".element__image").addEventListener('click', function() {
+    cardImage.addEventListener('click', function() {
         openPopup(popUpImage);
         picture.src = photoLink
         picture.alt = photoName
