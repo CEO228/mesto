@@ -14,6 +14,8 @@ const nameInput = document.querySelector(".popup__input_type_name");
 const jobInput = document.querySelector(".popup__input_type_job");
 const titleInput = document.querySelector(".popup__input_type_title");
 const photoInput = document.querySelector(".popup__input_type_photo");
+const popUpContainer = document.querySelector(".popup__container");
+const popUpList = document.querySelectorAll(".popup");
 
 const template = document.querySelector(".template").content;
 
@@ -136,3 +138,21 @@ function handleAddPhoto(evt) {
 }
 
 formAddElement.addEventListener('submit', handleAddPhoto);
+
+function closePopupEsc(evt) {
+    if (evt.keyCode == 27) {
+        for (var i = 0; i < popUpList.length; i++) {
+            closePopup(popUpList[i]);
+        }
+    }
+};
+
+document.addEventListener('keydown', closePopupEsc);
+
+popUpList.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains('popup_opened')) {
+            closePopup(popup);
+        }
+    })
+});
