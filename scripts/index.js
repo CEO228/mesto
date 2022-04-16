@@ -24,6 +24,9 @@ const picture = document.querySelector(".popup__image");
 const subtitle = document.querySelector(".popup__subtitle");
 const closePicture = document.querySelector(".popup__close-button_type_open-image");
 
+const photoAddFormInputs = Array.from(formAddElement.querySelectorAll(".popup__input"));
+const photoAddFormBtn = formAddElement.querySelector(".popup__save-button");
+
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
@@ -44,9 +47,6 @@ function openEditProfileForm() {
 function closeEditProfileForm() {
     closePopup(popUpInfo);
 }
-
-const photoAddFormInputs = Array.from(formAddElement.querySelectorAll(".popup__input"));
-const photoAddFormBtn = formAddElement.querySelector(".popup__save-button");
 
 function openPhotoAddForm() {
     openPopup(popUpPhoto);
@@ -121,11 +121,10 @@ formAddElement.addEventListener('submit', handleAddPhoto);
 
 function closePopupEsc(evt) {
     if (evt.keyCode == 27) {
-        for (var i = 0; i < popUpList.length; i++) {
-            closePopup(popUpList[i]);
-        }
+        const popupOpened = document.querySelector('.popup_opened');
+        closePopup(popupOpened);
     }
-};
+}
 
 popUpList.forEach((popup) => {
     popup.addEventListener('mousedown', (evt) => {
