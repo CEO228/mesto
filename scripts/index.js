@@ -24,6 +24,7 @@ const elementList = document.querySelector(".elements");
 const popUpImage = document.querySelector(".popup_type_open-image");
 const closePicture = document.querySelector(".popup__close-button_type_open-image");
 
+
 const validationSettings = ({
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
@@ -35,11 +36,12 @@ const validationSettings = ({
 
 // ПОДКЛЮЧЕНИЕ ВАЛИДАЦИИ
 
-const popupForms = document.querySelectorAll(".popup__form");
+const popupFormsValidationEdit = new FormValidator(validationSettings, formEditElement);
+const popupFormsValidationAdd = new FormValidator(validationSettings, formAddElement);
 
-const popupFormsValidation = new FormValidator(validationSettings, popupForms);
+popupFormsValidationEdit.enableValidation(validationSettings);
+popupFormsValidationAdd.enableValidation(validationSettings);
 
-popupFormsValidation.enableValidation(validationSettings);
 
 //
 
@@ -85,8 +87,6 @@ function handleAddPhoto(evt) {
 }
 
 
-//
-
 const openEditProfileForm = () => {
     openPopup(popUpInfo);
     nameInput.value = profileTitle.textContent;
@@ -100,10 +100,12 @@ const closeEditProfileForm = () => {
 
 const openPhotoAddForm = () => {
     openPopup(popUpPhoto);
+    popupFormsValidationAdd.disableButton();
 }
 
 const closePhotoAddForm = () => {
     closePopup(popUpPhoto);
+    formAddElement.reset();
 }
 
 profileOpenButton.addEventListener('click', openEditProfileForm);
