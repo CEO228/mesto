@@ -1,0 +1,38 @@
+{
+    "name": "mesto",
+    "version": "1.0.0",
+    "description": "\"Mesto\" - это прототип социальной сети, куда пользователь может выкладывать фото, добавлять к ним название и оценивать их лайками. Так же у него есть возможность менять свои данные (имя/никнейм и специализация).",
+    "main": "index.js",
+    "scripts": {
+        "build": "rm -rf dist && webpack --mode production",
+        "dev": "webpack serve"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/CEO228/mesto.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/CEO228/mesto/issues"
+    },
+    "homepage": "https://github.com/CEO228/mesto#readme",
+    "devDependencies": {
+        "@babel/core": "^7.17.12",
+        "@babel/preset-env": "^7.17.12",
+        "autoprefixer": "^10.4.7",
+        "babel-loader": "^8.2.5",
+        "clean-webpack-plugin": "^4.0.0",
+        "css-loader": "^6.7.1",
+        "cssnano": "^5.1.8",
+        "html-webpack-plugin": "^5.5.0",
+        "mini-css-extract-plugin": "^2.6.0",
+        "postcss-loader": "^6.2.1",
+        "webpack": "^5.72.1",
+        "webpack-cli": "^4.9.2",
+        "webpack-dev-server": "^4.9.0"
+    },
+    "dependencies": {
+        "core-js": "^3.22.5"
+    }
+}
