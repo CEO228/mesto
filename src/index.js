@@ -30,8 +30,10 @@ import {
 } from "./scripts/constants.js";
 
 
+const popupImage = new PopupWithImage(".popup_type_open-image");
+
 const handleCardClick = (name, link) => {
-    popupImage.open(name, link);
+    popupImage.open({ name, link });
 }
 
 const rendererForCards = (data) => {
@@ -52,19 +54,16 @@ const userInfo = new UserInfo({
     job: ".profile__subtitle"
 });
 
+
 const popupAdd = new PopupWithForm(".popup_type_photo", (data) => {
     create.addItem(rendererForCards(data));
-})
+});
 
 const popupEdit = new PopupWithForm(".popup_type_info", (data) => {
     userInfo.setUserInfo(data);
-})
-
-const popupImage = new PopupWithImage({
-    popupSelector: ".popup_type_open-image",
-    imageTitle: ".popup__subtitle",
-    imageSrc: ".popup__image"
 });
+
+
 
 popupAdd.setEventListeners();
 popupEdit.setEventListeners();
