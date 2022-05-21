@@ -87,5 +87,5 @@ photoFormOpenBtn.addEventListener('click', () => {
 const popupFormsValidationEdit = new FormValidator(validationSettings, formEditElement);
 const popupFormsValidationAdd = new FormValidator(validationSettings, formAddElement);
 
-popupFormsValidationEdit.enableValidation(validationSettings);
-popupFormsValidationAdd.enableValidation(validationSettings);
+popupFormsValidationEdit.enableValidation();
+popupFormsValidationAdd.enableValidation();
