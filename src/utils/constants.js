@@ -14,11 +14,17 @@ export const titleInput = document.querySelector(".popup__input_type_title");
 export const photoInput = document.querySelector(".popup__input_type_photo");
 export const popUpList = document.querySelectorAll(".popup");
 
+export const avatar = document.querySelector(".profile__image");
+export const editAvatarButton = document.querySelector(".profile__avatar-button");
+export const popUpAvatar = document.querySelector(".popup_type_avatar");
+export const formEditAvatar = popUpAvatar.querySelector(".popup__form");
+
 export const elementList = document.querySelector(".elements");
 
 export const popUpImage = document.querySelector(".popup_type_open-image");
 export const closePicture = document.querySelector(".popup__close-button_type_open-image");
 
+export const cardContainer = document.querySelector(".elements");
 
 export const validationSettings = ({
     formSelector: '.popup__form',

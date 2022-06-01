@@ -7,14 +7,14 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import Api from '../components/Api.js';
+import PopupWithDelete from '../components/PopupWithDelete.js';
 
 import {
     profileOpenButton,
     photoFormOpenBtn,
     profileCloseBtn,
     photoFormCloseBtn,
-    popUpInfo,
-    popUpPhoto,
     profileTitle,
     profileSubtitle,
     formEditElement,
@@ -26,9 +26,205 @@ import {
     popUpList,
     elementList,
     closePicture,
-    validationSettings
+    validationSettings,
+    avatar,
+    editAvatarButton,
+    formEditAvatar,
+    cardContainer
 } from "../utils/constants.js";
 
+
+const api = new Api({
+    url: 'https://mesto.nomoreparties.co/v1/cohort-42',
+    headers: {
+        authorization: '29a71108-ca9f-45bf-9a51-a59942050ce9',
+        'Content-Type': 'application/json'
+    }
+});
+
+let userId;
+
+Promise.all([api.getCards(), api.getUserInfo()])
+    .then(([initialCards, userData]) => {
+        userInfo.setUserInfo(userData);
+        userId = userData._id;
+        cardList.renderItems(initialCards);
+    })
+    .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+    })
+
+const userInfo = new UserInfo({
+    username: ".profile__title",
+    userjob: ".profile__subtitle",
+    avatar: ".profile__image"
+});
+
+/* /////////////////////////////////////////// */
+
+const popupInfo = new PopupWithForm({
+    popupSelector: '.popup_type_info',
+    handleSubmitForm: (dataForm) => {
+        popupInfo.loading(true);
+        api.editProfile(dataForm)
+            .then((dataForm) => {
+                userInfo.setUserInfo(dataForm);
+                popupInfo.close();
+            })
+            .catch((err) => {
+                console.log(`Ошибка: ${err}`);
+            })
+            .finally(() => {
+                popupInfo.loading(false);
+            })
+    }
+});
+popupInfo.setEventListeners();
+
+function fillInData({ username, userjob }) {
+    nameInput.value = username;
+    jobInput.value = userjob;
+}
+
+profileOpenButton.addEventListener('click', () => {
+    const info = userInfo.getUserInfo();
+    fillInData({
+        username: info.username,
+        userjob: info.userjob
+    });
+    popupInfo.open();
+})
+
+/* /////////////////////////////////////////// */
+
+const popUpAvatar = new PopupWithForm({
+    popupSelector: '.popup_type_avatar',
+    handleSubmitForm: (data) => {
+        popUpAvatar.loading(true);
+        api.editUserAvatar(data)
+            .then((data) => {
+                avatar.src = data.avatar;
+                popUpAvatar.close();
+            })
+            .catch((err) => {
+                console.log(`Ошибка: ${err}`);
+            })
+            .finally(() => {
+                popUpAvatar.loading(false);
+            })
+    }
+})
+
+popUpAvatar.setEventListeners();
+
+editAvatarButton.addEventListener('click', () => {
+    popUpAvatar.open();
+});
+
+/* /////////////////////////////////////////// */
+
+const createCard = (data) => {
+    const card = new Card({
+        data: data,
+        selector: ".template",
+        userId: userId,
+        handleCardClick: (name, link) => {
+            popupImage.open(name, link);
+        },
+        deleteIcon: (cardId) => {
+            popupDelete.open();
+            popupDelete.submitCallBack(() => {
+                api.deleteCard(cardId)
+                    .then(() => {
+                        popupDelete.close();
+                        card.deleteElement();
+                    })
+                    .catch((err) => {
+                        console.log(`Ошибка: ${err}`);
+                    });
+            });
+        },
+        putLike: (cardId) => {
+            api.clickOnLike(cardId)
+                .then((data) => {
+                    card.toggleLikeButton(data);
+                })
+                .catch((err) => {
+                    console.log(`Ошибка: ${err}`);
+                });
+        },
+        deleteLike: (cardId) => {
+            api.deleteLike(cardId)
+                .then((data) => {
+                    card.toggleLikeButton(data);
+                })
+                .catch((err) => {
+                    console.log(`Ошибка: ${err}`);
+                });
+        }
+    });
+
+    const cardElement = card.generateCard();
+    return cardElement;
+};
+
+const cardList = new Section({
+    renderer: (card) => {
+        cardList.addItem(createCard(card));
+    },
+}, '.elements');
+
+/* /////////////////////////////////////////// */
+
+const popupDelete = new PopupWithDelete({
+    popupSelector: '.popup_type_delete'
+});
+
+popupDelete.setEventListeners();
+
+/* /////////////////////////////////////////// 
+
+const popupAddPhoto = new PopupWithForm({
+    popupSelector: 'popup_type_photo',
+    handleSubmitForm: (formData) => {
+        popupAddPhoto.loading(true);
+        api.addNewCard(formData)
+            .then((formData) => {
+                cardList.addItem(createCard(formData));
+                popupAddPhoto.close();
+            })
+            .catch((err) => {
+                console.log(`Ошибка: ${err}`);
+            })
+            .finally(() => {
+                popupAddPhoto.loading(false);
+            })
+    }
+});
+
+popupAddPhoto.setEventListeners();
+
+photoFormOpenBtn.addEventListener('click', () => {
+    popupAddPhoto.open();
+});
+
+*/
+
+const popupImage = new PopupWithImage(".popup_type_open-image");
+popupImage.setEventListeners();
+
+
+
+const popupFormsValidationEdit = new FormValidator(validationSettings, formEditElement);
+const popupFormsValidationAdd = new FormValidator(validationSettings, formAddElement);
+const popupFormsValidationAvatar = new FormValidator(validationSettings, formEditAvatar);
+
+popupFormsValidationEdit.enableValidation();
+popupFormsValidationAdd.enableValidation();
+popupFormsValidationAvatar.enableValidation();
+
+
+/*
 
 const popupImage = new PopupWithImage(".popup_type_open-image");
 
@@ -89,3 +285,5 @@ const popupFormsValidationAdd = new FormValidator(validationSettings, formAddEle
 
 popupFormsValidationEdit.enableValidation();
 popupFormsValidationAdd.enableValidation();
+
+*/
