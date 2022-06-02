@@ -49,7 +49,7 @@ export default class Api {
             .then(res => this._getResponse(res));
     }
 
-    clickOnLike(cardId) {
+    putLike(cardId) {
         return fetch(`${this._url}/cards/${cardId}/likes`, {
                 method: 'PUT',
                 headers: this._headers
@@ -65,7 +65,7 @@ export default class Api {
             .then(res => this._getResponse(res));
     }
 
-    deleteCard(cardId) {
+    deleteIcon(cardId) {
         return fetch(`${this._url}/cards/${cardId}`, {
                 method: 'DELETE',
                 headers: this._headers

@@ -134,7 +134,7 @@ const createCard = (data) => {
         deleteIcon: (cardId) => {
             popupDelete.open();
             popupDelete.submitCallBack(() => {
-                api.deleteCard(cardId)
+                api.deleteIcon(cardId)
                     .then(() => {
                         popupDelete.close();
                         card.deleteElement();
@@ -145,7 +145,7 @@ const createCard = (data) => {
             });
         },
         putLike: (cardId) => {
-            api.clickOnLike(cardId)
+            api.putLike(cardId)
                 .then((data) => {
                     card.toggleLikeButton(data);
                 })

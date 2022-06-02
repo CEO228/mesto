@@ -26,14 +26,14 @@ export default class Card {
     _setEventListeners() {
         this._likeButton.addEventListener('click', () => {
             if (this._likeButton.classList.contains('element__like-button_active')) {
-                this._deleteLike(this._cardId);
+                this._deleteLike(this.cardId);
             } else {
-                this._putLike(this._cardId);
+                this._putLike(this.cardId);
             }
         });
 
         this._deleteButton.addEventListener('click', () => {
-            this._deleteIcon(this._cardId);
+            this._deleteIcon(this.cardId);
         });
 
         this._image.addEventListener('click', () => {
