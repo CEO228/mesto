@@ -73,7 +73,7 @@ export default class Card {
         this._deleteButton = this._element.querySelector(".element__delete-button");
         this._likeButton = this._element.querySelector(".element__like-button");
         this._image = this._element.querySelector(".element__image");
-        this._likesNumber = this._element.querySelector(".element-like-number");
+        this._likesNumber = this._element.querySelector(".element__like-number");
 
         this._setEventListeners();
 

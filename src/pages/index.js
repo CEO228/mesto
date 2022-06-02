@@ -168,6 +168,7 @@ const createCard = (data) => {
     return cardElement;
 };
 
+
 const cardList = new Section({
     renderer: (card) => {
         cardList.addItem(createCard(card));
@@ -182,33 +183,32 @@ const popupDelete = new PopupWithDelete({
 
 popupDelete.setEventListeners();
 
-/* /////////////////////////////////////////// 
 
-const popupAddPhoto = new PopupWithForm({
-    popupSelector: 'popup_type_photo',
-    handleSubmitForm: (formData) => {
-        popupAddPhoto.loading(true);
-        api.addNewCard(formData)
-            .then((formData) => {
-                cardList.addItem(createCard(formData));
-                popupAddPhoto.close();
+
+const popupPhoto = new PopupWithForm({
+    popupSelector: '.popup_type_photo',
+    handleSubmitForm: (dataForm) => {
+        popupPhoto.loading(true);
+        api.addNewCard(dataForm)
+            .then((dataForm) => {
+                cardList.addItem(createCard(dataForm));
+                popupPhoto.close();
             })
             .catch((err) => {
                 console.log(`Ошибка: ${err}`);
             })
             .finally(() => {
-                popupAddPhoto.loading(false);
+                popupPhoto.loading(false);
             })
     }
 });
 
-popupAddPhoto.setEventListeners();
+popupPhoto.setEventListeners();
 
 photoFormOpenBtn.addEventListener('click', () => {
-    popupAddPhoto.open();
+    popupPhoto.open();
 });
 
-*/
 
 const popupImage = new PopupWithImage(".popup_type_open-image");
 popupImage.setEventListeners();
