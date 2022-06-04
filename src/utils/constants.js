@@ -17,7 +17,7 @@ export const popUpList = document.querySelectorAll(".popup");
 export const avatar = document.querySelector(".profile__image");
 export const editAvatarButton = document.querySelector(".profile__avatar-button");
 export const popUpAvatar = document.querySelector(".popup_type_avatar");
-export const formEditAvatar = popUpAvatar.querySelector(".popup__form");
+export const formEditAvatar = document.querySelector(".popup__form_type_avatar");
 
 export const elementList = document.querySelector(".elements");
 
